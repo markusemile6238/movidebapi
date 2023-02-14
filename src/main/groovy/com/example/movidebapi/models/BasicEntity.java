@@ -10,7 +10,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @MappedSuperclass
-public class BasicEntity {
+public abstract class BasicEntity {
 
     @Getter @Setter
     @Column(nullable = false,updatable = false)
@@ -19,7 +19,7 @@ public class BasicEntity {
     private LocalDate updatedAt;
     @Getter @Setter
     @Column(nullable = false)
-    private Boolean active;
+    private Boolean active=true;
 
     @PrePersist
     public void actionPrePersist(){
